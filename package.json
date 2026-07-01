@@ -1,0 +1,26 @@
+{
+  "name": "@rafaelcode/wa-features",
+  "version": "0.1.0",
+  "description": "Feature plugins for a modular Baileys WhatsApp bot.",
+  "main": "index.js",
+  "files": [
+    "index.js",
+    "features"
+  ],
+  "scripts": {
+    "check": "node --check index.js && node --check features/runtime.js && node --check features/menu.js && node --check features/backup.js && node --check features/dbstats.js"
+  },
+  "keywords": [
+    "whatsapp",
+    "baileys",
+    "bot",
+    "plugins"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "archiver": "^7.0.1"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
