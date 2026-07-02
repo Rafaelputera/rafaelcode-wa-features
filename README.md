@@ -21,6 +21,16 @@ module.exports = {
 
 Tambahkan plugin ke array pada `index.js`. Router bot akan memvalidasi nama, daftar command, dan fungsi `execute()` saat start.
 
+## Fitur bawaan
+
+- `.menu` / `.help` menampilkan daftar command.
+- `.runtime` menampilkan uptime bot.
+- `.sticker` / `.stiker` / `.s` membuat sticker dari gambar, GIF, atau video pendek.
+- `.dbstats` menampilkan statistik database khusus owner.
+- `.backup` mengirim backup source khusus owner.
+
+Fitur sticker membutuhkan `ffmpeg` pada server atau hosting. Jika command gagal dengan pesan `ffmpeg belum terpasang`, install `ffmpeg` terlebih dahulu di environment bot.
+
 ## Menambah feature
 
 1. Buat file baru di `features/`, misalnya `features/ping.js`.
