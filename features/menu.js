@@ -23,6 +23,14 @@ module.exports = {
             return `*${category}*\n${commands}`;
         });
 
+        if (isCreator) {
+            sections.push([
+                "*Owner Core*",
+                `• ${prefix}reloadfeatures`,
+                `• ${prefix}update`,
+            ].join("\n"));
+        }
+
         const menuText = [
             `🤖 *${config.botName}*`,
             `Prefix: ${prefix}`,

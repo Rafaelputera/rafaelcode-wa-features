@@ -35,6 +35,8 @@ Tambahkan plugin ke array pada `index.js`. Router bot akan memvalidasi nama, daf
 - `.autotyping on/off/status` mengatur auto typing khusus owner.
 - `.dbstats` menampilkan statistik database khusus owner.
 - `.backup` mengirim backup source khusus owner.
+- `.reloadfeatures` memuat ulang fitur tanpa restart bot khusus owner.
+- `.update` update package `@rafaelcode/wa-features` dari bot utama khusus owner.
 
 Fitur sticker membutuhkan `ffmpeg` pada server atau hosting. Jika command gagal dengan pesan `ffmpeg belum terpasang`, install `ffmpeg` terlebih dahulu di environment bot.
 
