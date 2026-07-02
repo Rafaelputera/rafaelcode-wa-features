@@ -25,11 +25,20 @@ Tambahkan plugin ke array pada `index.js`. Router bot akan memvalidasi nama, daf
 
 - `.menu` / `.help` menampilkan daftar command.
 - `.runtime` menampilkan uptime bot.
+- `.owner` / `.creator` menampilkan kontak owner bot.
 - `.sticker` / `.stiker` / `.s` membuat sticker dari gambar, GIF, atau video pendek.
+- `.tagall [pesan]` mention semua member grup.
+- `.hidetag [pesan]` mengirim pesan dengan mention tersembunyi ke semua member.
+- `.kick`, `.promote`, `.demote` untuk target yang di-reply, di-tag, atau ditulis nomornya.
+- `.antilink on/off/status` menghapus pesan berisi link WhatsApp di grup tanpa kick member.
+- `.autoread on/off/status` mengatur auto read khusus owner.
+- `.autotyping on/off/status` mengatur auto typing khusus owner.
 - `.dbstats` menampilkan statistik database khusus owner.
 - `.backup` mengirim backup source khusus owner.
 
 Fitur sticker membutuhkan `ffmpeg` pada server atau hosting. Jika command gagal dengan pesan `ffmpeg belum terpasang`, install `ffmpeg` terlebih dahulu di environment bot.
+
+Fitur anti link dan group tools membutuhkan bot sebagai admin grup agar bisa menghapus pesan, kick, promote, atau demote member.
 
 ## Menambah feature
 
