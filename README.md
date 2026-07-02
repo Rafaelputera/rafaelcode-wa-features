@@ -49,12 +49,12 @@ Fitur anti link dan group tools membutuhkan bot sebagai admin grup agar bisa men
 
 ## Konfigurasi AI
 
-Fitur AI membaca API key dari environment variable server. Jangan simpan API key langsung di source code.
+Fitur AI membaca API key dari environment variable server. Pada bot utama, simpan key di file `bot-main/.env`. Jangan upload file `.env` ke GitHub.
 
 ```bash
-export VIKEY_API_KEY="isi_key_vikey"
-export MIMO_API_KEY="isi_key_mimo"
-export BYNARA_API_KEY="isi_key_bynara"
+VIKEY_API_KEY=isi_key_vikey
+MIMO_API_KEY=isi_key_mimo
+BYNARA_API_KEY=isi_key_bynara
 ```
 
 Contoh command:
