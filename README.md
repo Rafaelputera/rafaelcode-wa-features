@@ -25,8 +25,12 @@ Tambahkan plugin ke array pada `index.js`. Router bot akan memvalidasi nama, daf
 
 - `.menu` / `.help` menampilkan daftar command.
 - `.runtime` menampilkan uptime bot.
+- `.ping` / `.speed` mengecek latency, uptime, dan memory bot.
+- `.botinfo` / `.infobot` menampilkan info bot, total fitur, user, dan log command.
 - `.owner` / `.creator` menampilkan kontak owner bot.
 - `.sticker` / `.stiker` / `.s` membuat sticker dari gambar, GIF, atau video pendek.
+- `.toimg` / `.toimage` mengubah sticker menjadi gambar PNG.
+- `.cekid` / `.id` menampilkan ID chat, sender, dan quoted sender.
 - `.tagall [pesan]` mention semua member grup.
 - `.hidetag [pesan]` mengirim pesan dengan mention tersembunyi ke semua member.
 - `.kick`, `.promote`, `.demote` untuk target yang di-reply, di-tag, atau ditulis nomornya.
