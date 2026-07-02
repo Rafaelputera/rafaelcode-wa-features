@@ -28,6 +28,7 @@ Tambahkan plugin ke array pada `index.js`. Router bot akan memvalidasi nama, daf
 - `.ping` / `.speed` mengecek latency, uptime, dan memory bot.
 - `.botinfo` / `.infobot` menampilkan info bot, total fitur, user, dan log command.
 - `.owner` / `.creator` menampilkan kontak owner bot.
+- `.ai` / `.ask` / `.gpt` chat AI memakai provider Vikey, Mimo, atau Bynara.
 - `.sticker` / `.stiker` / `.s` membuat sticker dari gambar, GIF, atau video pendek.
 - `.toimg` / `.toimage` mengubah sticker menjadi gambar PNG.
 - `.cekid` / `.id` menampilkan ID chat, sender, dan quoted sender.
@@ -45,6 +46,25 @@ Tambahkan plugin ke array pada `index.js`. Router bot akan memvalidasi nama, daf
 Fitur sticker membutuhkan `ffmpeg` pada server atau hosting. Jika command gagal dengan pesan `ffmpeg belum terpasang`, install `ffmpeg` terlebih dahulu di environment bot.
 
 Fitur anti link dan group tools membutuhkan bot sebagai admin grup agar bisa menghapus pesan, kick, promote, atau demote member.
+
+## Konfigurasi AI
+
+Fitur AI membaca API key dari environment variable server. Jangan simpan API key langsung di source code.
+
+```bash
+export VIKEY_API_KEY="isi_key_vikey"
+export MIMO_API_KEY="isi_key_mimo"
+export BYNARA_API_KEY="isi_key_bynara"
+```
+
+Contoh command:
+
+```bash
+.ai jelaskan apa itu Node.js
+.ai vikey buat caption promosi
+.ai mimo buat ide konten
+.ai bynara rangkum teks ini
+```
 
 ## Menambah feature
 
