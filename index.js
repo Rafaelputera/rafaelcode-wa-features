@@ -3,10 +3,12 @@ const menu = require("./features/menu");
 const ping = require("./features/ping");
 const botInfo = require("./features/bot-info");
 const owner = require("./features/owner");
+const account = require("./features/account");
 const ai = require("./features/ai");
 const backup = require("./features/backup");
 const dbstats = require("./features/dbstats");
 const settings = require("./features/settings");
+const premiumManager = require("./features/premium-manager");
 const sticker = require("./features/sticker");
 const toImage = require("./features/to-image");
 const checkId = require("./features/check-id");
@@ -26,8 +28,10 @@ const features = [
     ping,
     botInfo,
     owner,
+    account,
     ai,
     settings,
+    premiumManager,
     sticker,
     toImage,
     checkId,
