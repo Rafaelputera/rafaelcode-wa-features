@@ -31,6 +31,7 @@ Tambahkan plugin ke array pada `index.js`. Router bot akan memvalidasi nama, daf
 - `.ai` / `.ask` / `.gpt` chat AI memakai provider Vikey, Mimo, atau Bynara.
 - `.sticker` / `.stiker` / `.s` membuat sticker dari gambar, GIF, atau video pendek.
 - `.toimg` / `.toimage` mengubah sticker menjadi gambar PNG.
+- `.upch <link saluran>` upload audio sebagai voice note ke Channel WhatsApp memakai FFmpeg.
 - `.cekid` / `.id` menampilkan ID chat, sender, dan quoted sender.
 - `.tagall [pesan]` mention semua member grup.
 - `.hidetag [pesan]` mengirim pesan dengan mention tersembunyi ke semua member.

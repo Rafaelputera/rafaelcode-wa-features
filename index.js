@@ -18,6 +18,7 @@ const moderation = require("./features/moderation");
 const broadcast = require("./features/broadcast");
 const profile = require("./features/profile");
 const users = require("./features/users");
+const upch = require("./features/upch");
 
 const features = [
     runtime,
@@ -38,6 +39,7 @@ const features = [
     broadcast,
     profile,
     users,
+    upch,
     backup,
     dbstats,
 ];

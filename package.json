@@ -8,7 +8,7 @@
     "features"
   ],
   "scripts": {
-    "check": "node --check index.js && node --check features/runtime.js && node --check features/menu.js && node --check features/ping.js && node --check features/bot-info.js && node --check features/owner.js && node --check features/ai.js && node --check features/settings.js && node --check features/sticker.js && node --check features/to-image.js && node --check features/check-id.js && node --check features/group-tools.js && node --check features/anti-link.js && node --check features/auto-presence.js && node --check features/welcome-goodbye.js && node --check features/moderation.js && node --check features/broadcast.js && node --check features/profile.js && node --check features/users.js && node --check features/backup.js && node --check features/dbstats.js"
+    "check": "node --check index.js && node --check features/runtime.js && node --check features/menu.js && node --check features/ping.js && node --check features/bot-info.js && node --check features/owner.js && node --check features/ai.js && node --check features/settings.js && node --check features/sticker.js && node --check features/to-image.js && node --check features/check-id.js && node --check features/group-tools.js && node --check features/anti-link.js && node --check features/auto-presence.js && node --check features/welcome-goodbye.js && node --check features/moderation.js && node --check features/broadcast.js && node --check features/profile.js && node --check features/users.js && node --check features/upch.js && node --check features/backup.js && node --check features/dbstats.js"
   },
   "keywords": [
     "whatsapp",
