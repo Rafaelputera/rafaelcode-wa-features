@@ -1,5 +1,9 @@
 const THUMBNAIL_URL = "https://athars.space/uploads/aaf383d3.png";
 
+function getBaileys() {
+    return require("@whiskeysockets/baileys");
+}
+
 function formatUptime(seconds) {
     const days = Math.floor(seconds / 86400);
     const hours = Math.floor((seconds % 86400) / 3600);
@@ -78,7 +82,7 @@ function createCategorySections(categories, prefix) {
             title: "Daftar Kategori Fitur",
             rows: categories.map((category) => ({
                 title: `${category.name} Menu`,
-                rowId: `${prefix}menu ${category.slug}`,
+                id: `${prefix}menu ${category.slug}`,
                 description: `${category.features.length} fitur tersedia`,
             })),
         },
@@ -130,31 +134,67 @@ function createCategoryCaption({ category, prefix, config }) {
     ].join("\n");
 }
 
-async function sendListMenu({ Rafael, m, caption, sections, config }) {
-    const payload = {
-        text: caption,
-        title: config.botName,
-        footer: "Nayaara-Bot Menu",
-        buttonText: "List Menu",
-        sections,
-        contextInfo: {
-            externalAdReply: {
-                title: config.botName,
-                body: "WhatsApp Bot",
-                thumbnailUrl: THUMBNAIL_URL,
-                sourceUrl: THUMBNAIL_URL,
-                mediaType: 1,
-                renderLargerThumbnail: true,
-            },
-        },
-    };
-
+async function sendInteractiveMenu({ Rafael, m, caption, sections, config }) {
     try {
-        await Rafael.sendMessage(m.chat, payload, { quoted: m });
+        const {
+            generateWAMessageFromContent,
+            prepareWAMessageMedia,
+            proto,
+        } = getBaileys();
+
+        const media = await prepareWAMessageMedia({
+            image: { url: THUMBNAIL_URL },
+        }, {
+            upload: Rafael.waUploadToServer,
+        });
+
+        const interactiveMessage = proto.Message.InteractiveMessage.create({
+            body: proto.Message.InteractiveMessage.Body.create({
+                text: caption,
+            }),
+            footer: proto.Message.InteractiveMessage.Footer.create({
+                text: "Nayaara-Bot Menu",
+            }),
+            header: proto.Message.InteractiveMessage.Header.create({
+                title: config.botName,
+                hasMediaAttachment: true,
+                ...media,
+            }),
+            nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
+                buttons: [
+                    {
+                        name: "single_select",
+                        buttonParamsJson: JSON.stringify({
+                            title: "List Menu",
+                            sections,
+                        }),
+                    },
+                ],
+            }),
+        });
+
+        const message = generateWAMessageFromContent(m.chat, {
+            viewOnceMessage: {
+                message: {
+                    messageContextInfo: {
+                        deviceListMetadata: {},
+                        deviceListMetadataVersion: 2,
+                    },
+                    interactiveMessage,
+                },
+            },
+        }, {
+            quoted: m,
+            userJid: Rafael.user?.id,
+        });
+
+        await Rafael.relayMessage(m.chat, message.message, {
+            messageId: message.key.id,
+        });
     } catch (error) {
         const fallbackRows = sections
             .flatMap((section) => section.rows || [])
-            .map((row, index) => `${index + 1}. ${row.title}\n   Ketik: ${row.rowId}`)
+            .map((row, index) => `${index + 1}. ${row.title}\n   Ketik: ${row.id}`)
             .join("\n");
 
         await Rafael.sendMessage(m.chat, {
@@ -181,7 +221,7 @@ module.exports = {
             await m.reply("Kategori menu tidak ditemukan. Silakan pilih dari list menu.");
         }
 
-        await sendListMenu({
+        await sendInteractiveMenu({
             Rafael,
             m,
             caption,
